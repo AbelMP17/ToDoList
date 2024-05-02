@@ -233,7 +233,7 @@ export default function CosasPorHacer() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filteredThings.length > 0 &&
+        {filteredThings.length > 0 ?
           filteredThings.map((item) => {
             return (
               <Thing
@@ -243,7 +243,7 @@ export default function CosasPorHacer() {
                 updateThingName={updateThingName}
               />
             );
-          })}
+          }): <div className="bg-red-400 p-8 mt-2 col-span-3 text-center w-full text-white text-xl font-bold rounded-lg"> No tienes trabajo. ¡Trabaja vago!</div>}
       </div>
       {isAddingOne.name !== "" && (
         <div className="flex justify-center items-center fixed left-0 top-0 h-full w-full bg-black bg-opacity-65 backdrop-blur-md z-40">
