@@ -170,7 +170,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
         <div className="flex justify-center items-center fixed left-0 top-0 h-full w-full bg-black bg-opacity-65 backdrop-blur-md z-40">
           <div className="flex flex-col justify-center items-center gap-3 bg-white w-[80%] md:w-[60%] rounded-xl pb-5">
             <h1 className="flex justify-center items-center gap-5 text-lg font-bold border-b-2 w-full text-center rounded-md bg-[#fdd47c] p-2">
-              Tarea:{" "}
+              <p className="hidden min-[480px]:block">Tarea:{" "}</p>
               <span className="bg-white p-5 rounded-md">{item.name}</span>{" "}
               <button
                 className="p-3 bg-red-400 rounded-md hover:shadow-md hover:shadow-[#a88d52] transition-all duration-500"

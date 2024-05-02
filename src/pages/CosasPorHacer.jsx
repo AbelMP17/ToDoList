@@ -260,7 +260,7 @@ export default function CosasPorHacer() {
         <div className="flex justify-center items-center fixed left-0 top-0 h-full w-full bg-black bg-opacity-65 backdrop-blur-md z-40">
           <div className="flex flex-col justify-center items-center gap-3 bg-white w-[80%] md:w-[60%] rounded-xl">
             <h1 className="flex justify-center items-center gap-5 text-lg font-bold border-b-2 w-full text-center rounded-md bg-[#fdd47c] p-2">
-              Título:{" "}
+            <p className="hidden min-[480px]:block">Tarea:{" "}</p>
               <span className="px-16 py-2 bg-white rounded-md">
                 {isAddingOne.name}
               </span>
