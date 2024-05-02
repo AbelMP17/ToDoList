@@ -123,7 +123,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               onClick={() => setWantSee(true)}
             >
               <img
-                src="https://w7.pngwing.com/pngs/217/612/png-transparent-eye-computer-icons-eye-pupil-people-logo-silhouette.png"
+                src="https://cdn-icons-png.flaticon.com/512/3208/3208786.png"
                 className="w-[30px]"
                 alt="Ver"
                 title="Ver"
