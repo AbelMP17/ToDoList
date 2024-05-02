@@ -62,7 +62,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
           {item.name}
         </p>
       ) : (
-        <div className="flex flex-col justify-center items-center gap-2 m-auto">
+        <div className="flex flex-col col-span-4 justify-center items-center gap-2 m-auto">
           <span
             className={`${
               inputName.length <= 25 ? "text-gray-500" : "text-red-500"
