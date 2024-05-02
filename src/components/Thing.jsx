@@ -123,7 +123,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               onClick={() => setWantSee(true)}
             >
               <img
-                src="../assets/imgs/ver.png"
+                src="https://w7.pngwing.com/pngs/217/612/png-transparent-eye-computer-icons-eye-pupil-people-logo-silhouette.png"
                 className="w-[30px]"
                 alt="Ver"
                 title="Ver"
@@ -134,7 +134,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               onClick={() => setWantDelete(true)}
             >
               <img
-                src="../assets/imgs/eliminar.png"
+                src="https://cdn-icons-png.flaticon.com/512/3143/3143497.png"
                 className="w-[30px] "
                 alt="Eliminar"
                 title="Eliminar"
