@@ -33,25 +33,24 @@ export default function CosasPorHacer() {
 
   useEffect(() => {
     let filtered = cosas; // Copia de todas las tareas
-  
+
     // Filtrar por nombre de tarea si se ha ingresado algo en el campo de búsqueda
     if (cosaSearched.trim() !== "") {
       filtered = filtered.filter((cosa) =>
         cosa.name.toLowerCase().includes(cosaSearched.toLowerCase())
       );
     }
-  
+
     // Filtrar por estado de la tarea (hecha/pendiente)
     if (filterCosasHechas === "Hechas") {
       filtered = filtered.filter((cosa) => cosa.status === true);
     } else if (filterCosasHechas === "Pendientes") {
       filtered = filtered.filter((cosa) => cosa.status === false);
     }
-  
+
     // Actualizar el estado de las tareas filtradas
     setFilteredThings(filtered);
   }, [cosaSearched, filterCosasHechas, cosas]);
-  
 
   const handleInputNameChange = (event) => {
     const newValue = event.target.value;
@@ -178,12 +177,12 @@ export default function CosasPorHacer() {
   return (
     <div className="flex flex-col bg-[#fdd47c] p-10 rounded-tr-xl rounded-b-xl">
       <div className="flex flex-wrap justify-between items-center w-full bg-[#f8da99] gap-3 p-5 rounded-xl">
-        <div className="flex justify-center items-center flex-grow gap-2 text-center">
+        <div className="flex flex-wrap justify-center items-center flex-grow gap-2 text-center">
           <input
             type="search"
             placeholder="Search..."
             list="datos"
-            className="p-3 rounded-md"
+            className="p-3 rounded-md w-full"
             onChange={handleThingSearched}
           />
           <datalist id="datos">
@@ -192,32 +191,38 @@ export default function CosasPorHacer() {
                 <option key={item.name} value={item.name} />
               ))}
           </datalist>
-          <select
-            className="p-3 rounded-md"
-            onChange={(event) => setFilterCosasHechas(event.target.value)}
-          >
-            <option value="Todas">Todas</option>
-            <option value="Hechas">Hechas</option>
-            <option value="Pendientes">Pendientes</option>
-          </select>
-          <p className="text-gray-500">{filteredThings.length +' / '+ cosas.length}</p>
+          <div className="flex justify-center items-center gap-2">
+            <select
+              className="p-3 rounded-md"
+              onChange={(event) => setFilterCosasHechas(event.target.value)}
+            >
+              <option value="Todas">Todas</option>
+              <option value="Hechas">Hechas</option>
+              <option value="Pendientes">Pendientes</option>
+            </select>
+            <p className="text-gray-500">
+              {filteredThings.length + " / " + cosas.length}
+            </p>
+          </div>
         </div>
 
-        <div className="flex flex-grow justify-center items-center gap-3">
-          <span
-            className={`${
-              inputName.length <= 25 ? "text-gray-500" : "text-red-500"
-            }`}
-          >
-            {inputName.length}/{MAX_NAME_LENGTH}
-          </span>
-          <input
-            type="text"
-            id="inputName"
-            className="p-3 rounded-md"
-            onChange={handleInputNameChange}
-            placeholder="Nombre nueva tarea"
-          />
+        <div className="flex flex-wrap flex-grow justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-2">
+            <span
+              className={`${
+                inputName.length <= 25 ? "text-gray-500" : "text-red-500"
+              }`}
+            >
+              {inputName.length}/{MAX_NAME_LENGTH}
+            </span>
+            <input
+              type="text"
+              id="inputName"
+              className="p-3 rounded-md w-full"
+              onChange={handleInputNameChange}
+              placeholder="Nombre nueva tarea"
+            />
+          </div>
           <button
             className="p-3 rounded-md bg-pink-300 hover:bg-opacity-70 transition-all duration-500"
             onClick={() =>
@@ -233,7 +238,7 @@ export default function CosasPorHacer() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filteredThings.length > 0 ?
+        {filteredThings.length > 0 ? (
           filteredThings.map((item) => {
             return (
               <Thing
@@ -243,7 +248,13 @@ export default function CosasPorHacer() {
                 updateThingName={updateThingName}
               />
             );
-          }): <div className="bg-red-400 p-8 mt-2 col-span-3 text-center w-full text-white text-xl font-bold rounded-lg"> No tienes trabajo. ¡Trabaja vago!</div>}
+          })
+        ) : (
+          <div className="bg-red-400 p-8 mt-2 col-span-3 text-center w-full text-white text-xl font-bold rounded-lg">
+            {" "}
+            No tienes trabajo. ¡Trabaja vago!
+          </div>
+        )}
       </div>
       {isAddingOne.name !== "" && (
         <div className="flex justify-center items-center fixed left-0 top-0 h-full w-full bg-black bg-opacity-65 backdrop-blur-md z-40">

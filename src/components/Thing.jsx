@@ -53,7 +53,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
   };
 
   return (
-    <div className="grid grid-cols-3 justify-between items-center p-5 bg-[#f8bb37] mt-5 rounded-md">
+    <div className="grid grid-cols-2 grid-rows-2 min-[480px]:grid-cols-3 min-[480px]:grid-rows-1 justify-between items-center p-5 bg-[#f8bb37] mt-5 rounded-md">
       {!editingName ? (
         <p
           className="bg-white p-5 rounded-md cursor-pointer max-w-[150px] text-center break-all"
@@ -117,7 +117,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               />
             </div>
           </label>
-          <div className="flex gap-2 m-auto">
+          <div className="flex gap-2 m-auto col-span-2 min-[480px]:col-span-1">
             <button
               className="p-2 bg-blue-300 rounded-md hover:shadow-md hover:shadow-[#a88d52] transition-all duration-500"
               onClick={() => setWantSee(true)}
@@ -135,7 +135,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3143/3143497.png"
-                className="w-[30px] "
+                className="w-[30px]"
                 alt="Eliminar"
                 title="Eliminar"
               />
