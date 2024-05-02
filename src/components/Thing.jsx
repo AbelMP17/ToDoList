@@ -179,14 +179,16 @@ export default function Thing({ item, removeThing, updateThingName }) {
                 X
               </button>
             </h1>
+            <div className="w-[60%] m-auto">
             {item.additionalInputs.map((input, i) => {
               return (
                 <div
-                  className="flex justify-center items-center gap-3 mt-5"
+                  className="grid grid-cols-3 justify-center items-center gap-3 mt-5"
                   key={i}
                 >
-                  <p>{input.name}</p>
-                  <label className="flex items-center cursor-pointer">
+                  <p className="text-right">{i+1}.</p>
+                  <p className="m-auto">{input.name}</p>
+                  <label className="flex items-center cursor-pointer m-auto">
                     <input
                       type="checkbox"
                       className="hidden"
@@ -210,6 +212,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       )}
