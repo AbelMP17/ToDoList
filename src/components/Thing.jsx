@@ -123,7 +123,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               onClick={() => setWantSee(true)}
             >
               <img
-                src="/src/assets/imgs/ver.png"
+                src="../assets/imgs/ver.png"
                 className="w-[30px]"
                 alt="Ver"
                 title="Ver"
@@ -134,7 +134,7 @@ export default function Thing({ item, removeThing, updateThingName }) {
               onClick={() => setWantDelete(true)}
             >
               <img
-                src="/src/assets/imgs/eliminar.png"
+                src="../assets/imgs/eliminar.png"
                 className="w-[30px] "
                 alt="Eliminar"
                 title="Eliminar"
